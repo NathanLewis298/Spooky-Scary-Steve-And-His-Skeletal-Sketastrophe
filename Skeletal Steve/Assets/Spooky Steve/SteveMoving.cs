@@ -5,9 +5,9 @@ using UnityEngine;
 public class SteveMoving : MonoBehaviour
 {
 
-    public int playerSpeed = 5;
+    public int playerSpeed = 10;
     public bool facingRight = true;
-    public int playerJumpPower = 300;
+    public int playerJumpPower = 1250;
     public float moveX;
 
 
