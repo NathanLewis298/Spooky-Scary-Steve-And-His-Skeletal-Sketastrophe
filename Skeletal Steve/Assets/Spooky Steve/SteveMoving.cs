@@ -9,6 +9,7 @@ public class SteveMoving : MonoBehaviour
     public bool facingRight = true;
     public int playerJumpPower = 1250;
     public float moveX;
+    public bool isGrounded;
 
 
     // Update is called once per frame
@@ -21,11 +22,11 @@ public class SteveMoving : MonoBehaviour
     {
         //CONTROLS
         moveX = Input.GetAxis("Horizontal");
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && isGrounded == true)
         {
             Jump();
         }
-        
+
         if (moveX < 0.0f && facingRight == false)
         {
             FlipPlayer();
@@ -42,7 +43,9 @@ public class SteveMoving : MonoBehaviour
     {
         //JUMPING CODE
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower);
+        isGrounded = false;
     }
+
 
     void FlipPlayer()
     {
@@ -51,5 +54,11 @@ public class SteveMoving : MonoBehaviour
         localScale.x *= -1;
         transform.localScale = localScale;
     }
-
+    void OnCollisionEnter2D (Collision2D col) {
+        Debug.Log("Player has collided with" + col.collider.name);
+        if (col.gameObject.tag == "ground")
+        {
+            isGrounded = true;
+        }
+    }
 }
