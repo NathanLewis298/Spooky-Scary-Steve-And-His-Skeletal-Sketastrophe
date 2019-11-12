@@ -45,7 +45,7 @@ public class SteveMoving : MonoBehaviour
         //JUMPING CODE
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower);
         isGrounded = false;
-        Debug.Log("Is Grounded" + isGrounded);
+        //Debug.Log("Is Grounded" + isGrounded);
     }
 
 
@@ -72,9 +72,9 @@ public class SteveMoving : MonoBehaviour
 
 
 
-        Debug.Log("transform.position" + transform.position);
+        //Debug.Log("transform.position" + transform.position);
 
-        Debug.Log("hit.point" + hit.point);
+        //Debug.Log("hit.point" + hit.point);
         // Debug.Log("hit.distance" + hit.distance);
 
         if (hit != null && hit.collider != null && hit.collider.tag != "enemy")
