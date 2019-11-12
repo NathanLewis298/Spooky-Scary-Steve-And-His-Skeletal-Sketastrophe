@@ -16,6 +16,7 @@ public class SteveMoving : MonoBehaviour
     void Update()
     {
         PlayerMove();
+        PlayerRaycast();
     }
 
     void PlayerMove()
@@ -44,6 +45,7 @@ public class SteveMoving : MonoBehaviour
         //JUMPING CODE
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower);
         isGrounded = false;
+        Debug.Log("Is Grounded" + isGrounded);
     }
 
 
@@ -54,11 +56,48 @@ public class SteveMoving : MonoBehaviour
         localScale.x *= -1;
         transform.localScale = localScale;
     }
-    void OnCollisionEnter2D (Collision2D col) {
-        //Debug.Log("Player has collided with" + col.collider.name);
-        if (col.gameObject.tag == "ground")
-        {
-            isGrounded = true;
-        }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+
     }
+
+    void PlayerRaycast()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
+        if (hit != null && hit.collider != null && hit.distance < 1.2f && hit.collider.tag == "enemy")
+        {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
+            Destroy(hit.collider.gameObject);
+        }
+
+
+
+        Debug.Log("transform.position" + transform.position);
+
+        Debug.Log("hit.point" + hit.point);
+        // Debug.Log("hit.distance" + hit.distance);
+
+        if (hit != null && hit.collider != null && hit.collider.tag != "enemy")
+        {
+            if (hit.distance < 1.2f)
+            {
+
+                isGrounded = true;
+            }
+            else
+            {
+
+                isGrounded = false;
+            }
+        }
+
+
+
+
+    }
+
+
+
+
 }
+
