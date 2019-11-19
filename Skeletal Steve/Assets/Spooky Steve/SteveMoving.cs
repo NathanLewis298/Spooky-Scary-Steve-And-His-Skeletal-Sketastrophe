@@ -69,8 +69,7 @@ public class SteveMoving : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
             Destroy(hit.collider.gameObject);
         }
-
-
+      
 
         //Debug.Log("transform.position" + transform.position);
 

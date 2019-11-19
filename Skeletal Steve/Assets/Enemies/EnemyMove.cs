@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class EnemyMove : MonoBehaviour
 {
     public int EnemySpeed;
@@ -18,7 +18,9 @@ public class EnemyMove : MonoBehaviour
             if (hit.collider.tag == "Player")
             {
                 Destroy(hit.collider.gameObject);
+                SceneManager.LoadScene("Level 1 forest");
             }
+
         }
        
     }
