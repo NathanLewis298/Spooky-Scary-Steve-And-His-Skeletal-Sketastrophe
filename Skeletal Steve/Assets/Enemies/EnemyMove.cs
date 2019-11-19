@@ -18,7 +18,7 @@ public class EnemyMove : MonoBehaviour
             if (hit.collider.tag == "Player")
             {
                 Destroy(hit.collider.gameObject);
-                SceneManager.LoadScene("Level 1 forest");
+                SceneManager.LoadScene("Death");
             }
 
         }
