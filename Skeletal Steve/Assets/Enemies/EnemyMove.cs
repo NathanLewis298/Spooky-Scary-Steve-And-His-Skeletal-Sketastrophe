@@ -29,9 +29,11 @@ public class EnemyMove : MonoBehaviour
         if (XMoveDirection > 0)
         {
             XMoveDirection = -1;
+            transform.localScale = new Vector3(-4, 4);
         } else
         {
             XMoveDirection = 1;
+            transform.localScale = new Vector3(4, 4);
         }
     }
 

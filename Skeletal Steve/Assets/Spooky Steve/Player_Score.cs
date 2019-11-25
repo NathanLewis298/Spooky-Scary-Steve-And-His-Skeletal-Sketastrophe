@@ -21,9 +21,18 @@ public class Player_Score : MonoBehaviour
             SceneManager.LoadScene("Level 1 forest");
         }
     }
-    private void OnTriggerEnter2D(Collider2D trig)
+     void OnTriggerEnter2D (Collider2D trig)
     {
-        CountScore();
+        if ( trig.gameObject.name == "EndLevel")
+        {
+            CountScore();
+        }
+        if (trig.gameObject.name == "Heart")
+        {
+            playerScore += 10;
+            Destroy(trig.gameObject);
+        }
+
     }
     void CountScore ()
     {
