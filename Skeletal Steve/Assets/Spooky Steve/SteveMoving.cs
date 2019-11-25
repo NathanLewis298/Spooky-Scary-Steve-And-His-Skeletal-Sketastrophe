@@ -10,11 +10,14 @@ public class SteveMoving : MonoBehaviour
     public int playerJumpPower = 1250;
     public float moveX;
     public bool isGrounded;
+    public Animator animator;
 
+    public Event OnLand;
 
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("Speed", Mathf.Abs(moveX));
         PlayerMove();
         PlayerRaycast();
     }
@@ -26,6 +29,7 @@ public class SteveMoving : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded == true)
         {
             Jump();
+            animator.SetBool("IsJumping", true);
         }
 
         if (moveX < 0.0f && facingRight == false)
@@ -39,7 +43,11 @@ public class SteveMoving : MonoBehaviour
         //PHYSICS
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
     }
-
+   
+    
+        
+        
+    
     void Jump()
     {
         //JUMPING CODE
@@ -82,10 +90,11 @@ public class SteveMoving : MonoBehaviour
             {
 
                 isGrounded = true;
+                animator.SetBool("IsJumping", false);
             }
             else
             {
-
+                animator.SetBool("IsJumping", true);
                 isGrounded = false;
             }
         }

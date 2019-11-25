@@ -5395,6 +5395,7 @@ MonoBehaviour:
   playerJumpPower: 500
   moveX: 0
   isGrounded: 0
+  animator: {fileID: 1514334794}
 --- !u!114 &1514334792
 MonoBehaviour:
   m_ObjectHideFlags: 0
