@@ -32,6 +32,35 @@ public class Player_Score : MonoBehaviour
             playerScore += 5;
             Destroy(trig.gameObject);
         }
+        if (trig.gameObject.name == "Eye")
+        {
+            playerScore += 5;
+            Destroy(trig.gameObject);
+        }
+
+        if (trig.gameObject.name == "Brain")
+        {
+            playerScore += 5;
+            Destroy(trig.gameObject);
+        }
+
+        if (trig.gameObject.name == "Arms")
+        {
+            playerScore += 5;
+            Destroy(trig.gameObject);
+        }
+
+        if (trig.gameObject.name == "Head")
+        {
+            playerScore += 5;
+            Destroy(trig.gameObject);
+        }
+
+
+
+
+
+
 
     }
     void CountScore ()
