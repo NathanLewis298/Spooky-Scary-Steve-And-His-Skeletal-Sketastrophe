@@ -29,7 +29,7 @@ public class Player_Score : MonoBehaviour
         }
         if (trig.gameObject.name == "Heart")
         {
-            playerScore += 10;
+            playerScore += 5;
             Destroy(trig.gameObject);
         }
 
