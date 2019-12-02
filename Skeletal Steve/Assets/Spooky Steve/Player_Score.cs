@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Player_Score : MonoBehaviour
 {
-    private float timeLeft = 120;
+    private float timeLeft = 240;
     public int playerScore = 0;
     public GameObject timeLeftUI;
     public GameObject playerScoreUI;
@@ -21,9 +21,9 @@ public class Player_Score : MonoBehaviour
             SceneManager.LoadScene("Level 1 forest");
         }
     }
-     void OnTriggerEnter2D (Collider2D trig)
+    void OnTriggerEnter2D(Collider2D trig)
     {
-        if ( trig.gameObject.name == "EndLevel")
+        if (trig.gameObject.name == "EndLevel")
         {
             CountScore();
         }
@@ -63,12 +63,13 @@ public class Player_Score : MonoBehaviour
 
 
     }
-    void CountScore ()
+    void CountScore()
     {
         playerScore = playerScore + (int)(timeLeft * 10);
-        Debug.Log (playerScore);
+        Debug.Log(playerScore);
     }
-    
-        
-    
-}    
+
+
+
+}
+
