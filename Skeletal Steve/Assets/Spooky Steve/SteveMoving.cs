@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class SteveMoving : MonoBehaviour
 {
 
@@ -77,7 +77,14 @@ public class SteveMoving : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
             Destroy(hit.collider.gameObject);
         }
-      
+
+       
+        if (hit != null && hit.collider != null && hit.distance < 1.2f && hit.collider.tag == "wolf")
+        {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
+            Destroy(this.gameObject);
+            SceneManager.LoadScene("Death");
+        }
 
         //Debug.Log("transform.position" + transform.position);
 
