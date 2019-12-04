@@ -74,6 +74,9 @@ public class SteveMoving : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
         if (hit != null && hit.collider != null && hit.distance < 1.2f && hit.collider.tag == "enemy")
         {
+
+            SoundManagerScript.PlaySound("enemyDeath");
+            
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
             Destroy(hit.collider.gameObject);
         }

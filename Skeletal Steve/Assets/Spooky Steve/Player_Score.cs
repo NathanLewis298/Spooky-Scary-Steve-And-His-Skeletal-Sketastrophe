@@ -29,29 +29,34 @@ public class Player_Score : MonoBehaviour
         }
         if (trig.gameObject.name == "Heart")
         {
+            SoundManagerScript.PlaySound("PickUp");
             playerScore += 5;
             Destroy(trig.gameObject);
         }
         if (trig.gameObject.name == "Eye")
         {
+            SoundManagerScript.PlaySound("PickUp");
             playerScore += 5;
             Destroy(trig.gameObject);
         }
 
         if (trig.gameObject.name == "Brain")
         {
+            SoundManagerScript.PlaySound("PickUp");
             playerScore += 5;
             Destroy(trig.gameObject);
         }
 
         if (trig.gameObject.name == "Arms")
         {
+            SoundManagerScript.PlaySound("PickUp");
             playerScore += 5;
             Destroy(trig.gameObject);
         }
 
         if (trig.gameObject.name == "Head")
         {
+            SoundManagerScript.PlaySound("PickUp");
             playerScore += 5;
             Destroy(trig.gameObject);
         }

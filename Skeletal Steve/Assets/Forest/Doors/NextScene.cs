@@ -10,6 +10,7 @@ public class NextScene : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            SoundManagerScript.PlaySound("WoodenDoor");
             SceneManager.LoadScene(sceneName);
         }
     }

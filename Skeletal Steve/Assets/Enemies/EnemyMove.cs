@@ -17,6 +17,7 @@ public class EnemyMove : MonoBehaviour
             Flip();
             if (hit.collider.tag == "Player")
             {
+                SoundManagerScript.PlaySound("Death");
                 Destroy(hit.collider.gameObject);
                 SceneManager.LoadScene("Death");
             }
