@@ -30,6 +30,7 @@ public class SteveMoving : MonoBehaviour
         {
             Jump();
             animator.SetBool("IsJumping", true);
+            SoundManagerScript.PlaySound("Jump");
         }
 
         if (moveX < 0.0f && facingRight == false)
@@ -53,6 +54,7 @@ public class SteveMoving : MonoBehaviour
         //JUMPING CODE
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower);
         isGrounded = false;
+        
         //Debug.Log("Is Grounded" + isGrounded);
     }
 

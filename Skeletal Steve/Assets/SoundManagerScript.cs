@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManagerScript : MonoBehaviour
 {
-    public static AudioClip enemyDeathSound, PickUpSound, DeathSound, WoodenDoorSound;
+    public static AudioClip enemyDeathSound, PickUpSound, DeathSound, WoodenDoorSound, JumpSound;
     static AudioSource audioSrc;
     void Start()
     {
@@ -15,6 +15,8 @@ public class SoundManagerScript : MonoBehaviour
         DeathSound = Resources.Load<AudioClip>("Death");
 
         WoodenDoorSound = Resources.Load<AudioClip>("WoodenDoor");
+
+        JumpSound = Resources.Load<AudioClip>("Jump");
 
 
         audioSrc = GetComponent<AudioSource>();
@@ -47,7 +49,9 @@ public class SoundManagerScript : MonoBehaviour
                 audioSrc.PlayOneShot(WoodenDoorSound);
                 break;
 
-
+            case "Jump":
+                audioSrc.PlayOneShot(JumpSound);
+                break;
 
         }
     }
