@@ -61,7 +61,12 @@ public class Player_Score : MonoBehaviour
             Destroy(trig.gameObject);
         }
 
-
+        if (trig.gameObject.name == "Legs")
+        {
+            SoundManagerScript.PlaySound("PickUp");
+            playerScore += 5;
+            Destroy(trig.gameObject);
+        }
 
 
 
