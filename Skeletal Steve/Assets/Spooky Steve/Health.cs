@@ -4,28 +4,39 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
-    public int health;
+    public int healthRemaining = 3;
     public bool hasDied;
-    
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
-     hasDied = false;
+        hasDied = false;
     }
 
-    
+
     void Update()
     {
-       if (gameObject.transform.position.y < -7) {
+        if (gameObject.transform.position.y < -7)
+        {
             hasDied = true;
         }
-       if (hasDied == true) {
-            StartCoroutine ("Die");
+        if (hasDied == true)
+        {
+            StartCoroutine("Die");
         }
+
+        if (healthRemaining == -1)
+        {
+            hasDied = true;
+        } 
+
     }
-    IEnumerator Die() {
-        SceneManager.LoadScene("Level 1 forest");
+    IEnumerator Die()
+    {
+        SoundManagerScript.PlaySound("Death");
+        
+        SceneManager.LoadScene("Death");
         yield return null;
     }
 }

@@ -17,9 +17,14 @@ public class EnemyMove : MonoBehaviour
             Flip();
             if (hit.collider.tag == "Player")
             {
-                SoundManagerScript.PlaySound("Death");
-                Destroy(hit.collider.gameObject);
-                SceneManager.LoadScene("Death");
+                Health health = hit.collider.gameObject.GetComponent<Health>();
+                Debug.Log(health.healthRemaining);
+                health.healthRemaining = health.healthRemaining - 1;
+
+                var partList = hit.collider.gameObject.GetComponent<Player_Score>().parts;
+                partList[partList.Count - 1].SetActive(true);
+                partList.Remove(partList[partList.Count - 1]);
+                
             }
 
         }

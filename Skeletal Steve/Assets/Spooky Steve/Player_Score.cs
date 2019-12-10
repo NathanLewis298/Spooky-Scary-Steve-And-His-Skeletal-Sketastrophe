@@ -9,6 +9,7 @@ public class Player_Score : MonoBehaviour
     public int playerScore = 0;
     public GameObject timeLeftUI;
     public GameObject playerScoreUI;
+    public List<GameObject> parts = new List<GameObject>();
 
     // Update is called once per frame
     void Update()
@@ -29,43 +30,37 @@ public class Player_Score : MonoBehaviour
         }
         if (trig.gameObject.name == "Heart")
         {
-            SoundManagerScript.PlaySound("PickUp");
-            playerScore += 5;
-            Destroy(trig.gameObject);
+            BodyPartPickup(trig);
+            parts.Add(trig.gameObject);
         }
         if (trig.gameObject.name == "Eye")
         {
-            SoundManagerScript.PlaySound("PickUp");
-            playerScore += 5;
-            Destroy(trig.gameObject);
+            BodyPartPickup(trig);
+            parts.Add(trig.gameObject);
         }
 
         if (trig.gameObject.name == "Brain")
         {
-            SoundManagerScript.PlaySound("PickUp");
-            playerScore += 5;
-            Destroy(trig.gameObject);
+            BodyPartPickup(trig);
+            parts.Add(trig.gameObject);
         }
 
         if (trig.gameObject.name == "Arms")
         {
-            SoundManagerScript.PlaySound("PickUp");
-            playerScore += 5;
-            Destroy(trig.gameObject);
+            BodyPartPickup(trig);
+            parts.Add(trig.gameObject);
         }
 
         if (trig.gameObject.name == "Head")
         {
-            SoundManagerScript.PlaySound("PickUp");
-            playerScore += 5;
-            Destroy(trig.gameObject);
+            BodyPartPickup(trig);
+            parts.Add(trig.gameObject);
         }
 
         if (trig.gameObject.name == "Legs")
         {
-            SoundManagerScript.PlaySound("PickUp");
-            playerScore += 5;
-            Destroy(trig.gameObject);
+            BodyPartPickup(trig);
+            parts.Add(trig.gameObject);
         }
 
 
@@ -73,6 +68,17 @@ public class Player_Score : MonoBehaviour
 
 
     }
+
+    private void BodyPartPickup(Collider2D trig)
+    {
+        SoundManagerScript.PlaySound("PickUp");
+        playerScore += 5;
+        GameObject player = GameObject.Find("Player");
+        Health health = player.GetComponent<Health>();
+        health.healthRemaining = health.healthRemaining + 1;
+        trig.gameObject.SetActive(false);
+    }
+
     void CountScore()
     {
         playerScore = playerScore + (int)(timeLeft * 10);
