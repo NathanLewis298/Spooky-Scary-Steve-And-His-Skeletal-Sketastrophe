@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef6cc3574cf3ee409586dae3c7ba91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  healthRemaining: 0
   hasDied: 0
 --- !u!114 &1663049683021256639
 MonoBehaviour:
@@ -180,6 +180,10 @@ MonoBehaviour:
   playerScore: 0
   timeLeftUI: {fileID: 0}
   playerScoreUI: {fileID: 0}
+  BodyUI: {fileID: 0}
+  parts: []
+  health: {fileID: 0}
+  player: {fileID: 0}
 --- !u!95 &1663049683021256632
 Animator:
   serializedVersion: 3

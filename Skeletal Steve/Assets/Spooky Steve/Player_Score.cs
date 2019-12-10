@@ -9,13 +9,23 @@ public class Player_Score : MonoBehaviour
     public int playerScore = 0;
     public GameObject timeLeftUI;
     public GameObject playerScoreUI;
+    public GameObject BodyUI;
     public List<GameObject> parts = new List<GameObject>();
+    public Health health;
+    public GameObject player;
 
     // Update is called once per frame
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        health = player.GetComponent<Health>();
+    }
+
     void Update()
     {
         timeLeft -= Time.deltaTime;
         timeLeftUI.gameObject.GetComponent<Text>().text = ("Time Left: " + (int)timeLeft);
+        BodyUI.gameObject.GetComponent<Text>().text = ("X " + health.healthRemaining);
         playerScoreUI.gameObject.GetComponent<Text>().text = ("Score: " + playerScore);
         if (timeLeft < 0.1f)
         {
@@ -63,9 +73,17 @@ public class Player_Score : MonoBehaviour
             parts.Add(trig.gameObject);
         }
 
+        if (trig.gameObject.name == "Body")
+        {
+            BodyPartPickup(trig);
+            parts.Add(trig.gameObject);
+        }
 
-
-
+        if (trig.gameObject.name == "Lungs")
+        {
+            BodyPartPickup(trig);
+            parts.Add(trig.gameObject);
+        }
 
     }
 

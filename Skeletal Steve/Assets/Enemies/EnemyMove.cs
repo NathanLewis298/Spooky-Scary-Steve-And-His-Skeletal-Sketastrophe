@@ -17,6 +17,7 @@ public class EnemyMove : MonoBehaviour
             Flip();
             if (hit.collider.tag == "Player")
             {
+                SoundManagerScript.PlaySound("Death");
                 Health health = hit.collider.gameObject.GetComponent<Health>();
                 Debug.Log(health.healthRemaining);
                 health.healthRemaining = health.healthRemaining - 1;
