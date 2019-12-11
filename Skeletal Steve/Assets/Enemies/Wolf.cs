@@ -28,6 +28,7 @@ public class Wolf : MonoBehaviour
                 partList.Remove(partList[partList.Count - 1]);
             }
 
+
         }
 
     }

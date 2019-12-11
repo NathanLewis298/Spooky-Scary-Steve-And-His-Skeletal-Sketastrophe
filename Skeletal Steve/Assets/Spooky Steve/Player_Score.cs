@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Player_Score : MonoBehaviour
 {
-    private float timeLeft = 240;
+    private float timeLeft = 600;
     public int playerScore = 0;
     public GameObject timeLeftUI;
     public GameObject playerScoreUI;
@@ -13,6 +13,7 @@ public class Player_Score : MonoBehaviour
     public List<GameObject> parts = new List<GameObject>();
     public Health health;
     public GameObject player;
+    public bool swordPickedUp = false;
 
     // Update is called once per frame
     private void Start()
@@ -84,6 +85,14 @@ public class Player_Score : MonoBehaviour
             BodyPartPickup(trig);
             parts.Add(trig.gameObject);
         }
+
+        if(trig.gameObject.tag == "sword")
+        {
+            swordPickedUp = true;
+            Destroy(trig.gameObject);
+        }
+
+        
 
     }
 

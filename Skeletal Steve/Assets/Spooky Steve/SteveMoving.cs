@@ -11,8 +11,14 @@ public class SteveMoving : MonoBehaviour
     public float moveX;
     public bool isGrounded;
     public Animator animator;
+    public Player_Score playerScore;
 
     public Event OnLand;
+
+    private void Start()
+    {
+        playerScore = GetComponent<Player_Score>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -78,7 +84,7 @@ public class SteveMoving : MonoBehaviour
         {
 
             SoundManagerScript.PlaySound("enemyDeath");
-            
+            playerScore.playerScore += 15;
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
             Destroy(hit.collider.gameObject);
         }
@@ -86,9 +92,20 @@ public class SteveMoving : MonoBehaviour
        
         if (hit != null && hit.collider != null && hit.distance < 1.2f && hit.collider.tag == "wolf")
         {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
-            Destroy(this.gameObject);
-            SceneManager.LoadScene("Death");
+            if (!playerScore.swordPickedUp)
+            {
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
+                Destroy(this.gameObject);
+                SceneManager.LoadScene("Death");
+            }
+            else if(playerScore.swordPickedUp)
+            {
+
+                SoundManagerScript.PlaySound("enemyDeath");
+                playerScore.playerScore += 20;
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
+                Destroy(hit.collider.gameObject);
+            }
         }
 
         //Debug.Log("transform.position" + transform.position);

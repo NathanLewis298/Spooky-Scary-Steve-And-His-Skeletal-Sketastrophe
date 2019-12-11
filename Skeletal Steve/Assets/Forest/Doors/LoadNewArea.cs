@@ -6,6 +6,7 @@ public class LoadNewArea : MonoBehaviour
 
 {
     public string Hidden_Sword;
+    public int requiredLives = 8;
     void Start()
     {
         
@@ -21,7 +22,12 @@ public class LoadNewArea : MonoBehaviour
     {
         if(other.gameObject.name == "Player")
         {
-            Application.LoadLevel(Hidden_Sword);
+            Health health = other.gameObject.GetComponent<Health>();
+
+            if (health.healthRemaining == requiredLives)
+            {
+                Application.LoadLevel(Hidden_Sword);
+            }
         }
     }
 
