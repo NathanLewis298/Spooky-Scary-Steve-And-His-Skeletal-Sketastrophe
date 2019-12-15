@@ -26,7 +26,7 @@ public class LoadNewArea : MonoBehaviour
 
             if (health.healthRemaining == requiredLives)
             {
-                Application.LoadLevel(Hidden_Sword);
+                Application.LoadLevel ("EndLevel");
             }
         }
     }

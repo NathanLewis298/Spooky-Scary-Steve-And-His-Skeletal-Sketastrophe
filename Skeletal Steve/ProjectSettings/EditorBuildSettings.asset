@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Background/Levels/Death.unity
     guid: 23586aabc4696c54c9f24e7eb02ab497
   - enabled: 1
-    path: Assets/Background/Levels/Hidden-Sword.unity
+    path: Assets/Background/Levels/EndLevel.unity
     guid: afca54c107ed6264b9db7b23127a6ad8
   m_configObjects: {}

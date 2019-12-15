@@ -88,6 +88,7 @@ public class Player_Score : MonoBehaviour
 
         if(trig.gameObject.tag == "sword")
         {
+            SoundManagerScript.PlaySound("Sword");
             swordPickedUp = true;
             Destroy(trig.gameObject);
         }
@@ -99,7 +100,7 @@ public class Player_Score : MonoBehaviour
     private void BodyPartPickup(Collider2D trig)
     {
         SoundManagerScript.PlaySound("PickUp");
-        playerScore += 5;
+        
         GameObject player = GameObject.Find("Player");
         Health health = player.GetComponent<Health>();
         health.healthRemaining = health.healthRemaining + 1;

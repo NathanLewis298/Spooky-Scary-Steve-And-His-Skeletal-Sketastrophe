@@ -94,6 +94,7 @@ public class SteveMoving : MonoBehaviour
         {
             if (!playerScore.swordPickedUp)
             {
+                SoundManagerScript.PlaySound("Howl");
                 GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
                 Destroy(this.gameObject);
                 SceneManager.LoadScene("Death");
@@ -101,7 +102,7 @@ public class SteveMoving : MonoBehaviour
             else if(playerScore.swordPickedUp)
             {
 
-                SoundManagerScript.PlaySound("enemyDeath");
+                SoundManagerScript.PlaySound("Howl");
                 playerScore.playerScore += 20;
                 GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
                 Destroy(hit.collider.gameObject);

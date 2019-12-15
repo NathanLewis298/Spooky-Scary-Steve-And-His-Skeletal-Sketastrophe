@@ -706,8 +706,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Controls\n\n\u2191 - Jump\n\n\u2192 - Walk Left\n\n\u2190 - Walk Right\n\nsPACE
-    - interact"
+  m_Text: "Controls\n\n\u2191 - Jump\n\n\u2192 - Walk Left\n\n\u2190 - Walk Right\n\nEsc
+    - Pause Menu"
 --- !u!222 &921592176
 CanvasRenderer:
   m_ObjectHideFlags: 0
