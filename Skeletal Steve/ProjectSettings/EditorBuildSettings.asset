@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Background/Levels/EndLevel.unity
     guid: afca54c107ed6264b9db7b23127a6ad8
+  - enabled: 1
+    path: Assets/Background/Levels/TheEndGame.unity
+    guid: 46e44ffcc734a2741bb075adcd5678e3
   m_configObjects: {}

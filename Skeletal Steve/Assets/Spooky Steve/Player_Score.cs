@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Player_Score : MonoBehaviour
 {
-    private float timeLeft = 600;
+    public float timeLeft = 600;
     public int playerScore = 0;
     public GameObject timeLeftUI;
     public GameObject playerScoreUI;
@@ -14,6 +14,7 @@ public class Player_Score : MonoBehaviour
     public Health health;
     public GameObject player;
     public bool swordPickedUp = false;
+    public Image sword;
 
     // Update is called once per frame
     private void Start()
@@ -30,7 +31,7 @@ public class Player_Score : MonoBehaviour
         playerScoreUI.gameObject.GetComponent<Text>().text = ("Score: " + playerScore);
         if (timeLeft < 0.1f)
         {
-            SceneManager.LoadScene("Level 1 forest");
+            SceneManager.LoadScene("Death");
         }
     }
     void OnTriggerEnter2D(Collider2D trig)
@@ -90,10 +91,14 @@ public class Player_Score : MonoBehaviour
         {
             SoundManagerScript.PlaySound("Sword");
             swordPickedUp = true;
+            sword.enabled = true;
             Destroy(trig.gameObject);
         }
 
-        
+        if (trig.gameObject.name == "Soul")
+        {
+            Application.LoadLevel("TheEndGame");
+        }
 
     }
 
